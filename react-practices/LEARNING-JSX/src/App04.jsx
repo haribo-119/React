@@ -3,7 +3,7 @@ import './App.css'
 
 function App04() {
     const styleA = {
-        color:'darked',
+        color:'darkred',
         fontWeight :'bold',
     }
     const styleB = {
@@ -15,10 +15,17 @@ function App04() {
     return(
         <>
             <div style={isPrimary ? styleA : styleB}>
-                This text has
+                This text has dynamic styling.
             </div>
+            <span
+                style={{
+                    fontSize : isPrimary ? '1.5em' : '1em',
+                    opacity  : isPrimary ? 1 : 0.5 
+                }}
+                >
+                 So does this text.
+                </span>
         </>
-
 
              )
 }
