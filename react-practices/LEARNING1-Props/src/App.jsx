@@ -1,9 +1,14 @@
 import './App.css'
-import InfoCard from './InfoCard'
+import InfoCard from './InfoCard';
 // 3-1) ProductCard
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCard';
+// 4-1) CardLayout.jsx
+import CardLayout from './CardLayout';
 
-
+// 5-1) 고차 컴포넌트
+import withConditionalCard from './withConditionalCard';
+import SimpleCard from './SimpleCard';
+const ConditionalSimpleCard = withConditionalCard(SimpleCard)
 // 2-3) 배열로 변경
 // const cards = [
 // {
@@ -67,18 +72,56 @@ function App(){
 
 
   // 3-1) ProductCard.jsx
-  const product = {
-    name:"Laptop",
-    price:123.4567
-  };
+  // const product = {
+  //   name:"Laptop",
+  //   price:123.4567
+  // };
   
-  return (
-    <ProductCard
-    {...product}
-    formatPrice={(p) => `$${p.toFixed(2)}`}
-    />
-  )
+  // return (
+  //   <ProductCard
+  //   {...product}
+  //   formatPrice={(p) => `$${p.toFixed(2)}`}
+  //   />
+  // )
 
+  // 4-1) CardLayout.jsx (children)
+  // return(
+  //     <div>
+  //       <CardLayout title="About">
+  //         <p>Props of Components</p>
+  //       </CardLayout>
+
+  //       <CardLayout title="Details">
+  //         <ul>
+  //           <li>Frature A</li>
+  //           <li>Frature B</li>
+  //           <li>Frature C</li>
+  //         </ul>
+  //       </CardLayout>
+
+  //       <CardLayout title="Contact">
+  //         <p>Email : example@example.com</p>
+  //         <p>Phone : 123-456-7890</p>
+  //       </CardLayout>
+  //     </div>
+  // )
+
+  // 5-1)
+  return(
+    <>
+      <ConditionalSimpleCard
+        title="Active Card"
+        content="This card is active"
+        disabled={false}
+        />
+   
+      <ConditionalSimpleCard 
+        title="Disabled Card"
+        content="This card is disabled"
+        disabled={true}
+      />
+   </>
+  )
 }
 
 export default App

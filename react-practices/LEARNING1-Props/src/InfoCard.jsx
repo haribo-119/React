@@ -1,6 +1,6 @@
 import style from './Card.module.css'
 
-// 1) 개선전
+// 1-1) 개선전
 // const InfoCard = (props) => (
 //     <div className={style.card}>
 //         <h2>{props.title}</h2>
@@ -9,7 +9,7 @@ import style from './Card.module.css'
 //     </div>
 // )
 
-// 2) 개선후
+// 1-2) 개선후
 // const InfoCard = ({title,content,author}) => (
 //     <div className={style.card}>
 //         <h2>{title}</h2>
@@ -18,7 +18,7 @@ import style from './Card.module.css'
 //     </div>
 // )
 
-// 3) 개선후
+// 1-3) 개선후
 const InfoCard =({
         title="(No title)",
         content,
