@@ -2,10 +2,15 @@ import './App.css'
 import { useState } from 'react'
 
 // 1) useReducer
-import React, { useReducer } from 'react' // {userReducer} 리엑트에서 제공되는 기능
-import { userReducer, initialState }
-from './reducers/userReducer'
+// import React, { useReducer } from 'react' // {userReducer} 리엑트에서 제공되는 기능
+// import { userReducer, initialState }
+// from './reducers/userReducer'
 
+// 2) data.js
+import React, { useReducer } from 'react' 
+import { userReducer, init }
+from './reducers/userReducer'
+import data from './data'
 
 function App() {
   // const [name, setName] = useState('')
@@ -58,8 +63,12 @@ function App() {
    * 1) useReducer - 여러 컴포넌트에서 상태를 공유할 때 사용
    *    reducer는 "상태"와 "액션"을 받아서 "새로운 상태"를 반환하는 함수이다
    */
-  const [state, dispatch] // 대부분 state, dispatch 라고 명시 (변수 이름은 변경가능)
-   = useReducer(userReducer, initialState) // useReducer(함수, 초기값)
+//  const [state, dispatch] // 대부분 state, dispatch 라고 명시 (변수 이름은 변경가능)
+//   = useReducer(userReducer, initialState) // useReducer(함수, 초기값)
+
+    // 2) data.js
+    const [state,dispatch]
+    = useReducer (userReducer,data,init) 
 
   return (
     <div>
@@ -82,6 +91,12 @@ function App() {
        && <p style={{ color: 'red' }}>{state.warning}</p>}
       <p>Name: {state.name}</p>
       <p>Year: {state.year}</p>
+      {/* 2) data.js */}
+      <button onClick={
+        () => dispatch({ type: 'RESET', payload: data })}>
+        Reset
+      </button>
+
     </div>
   )
 

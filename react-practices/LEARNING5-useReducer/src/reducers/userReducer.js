@@ -28,7 +28,21 @@ export const initialState = {
           ...state, 
           year: action.payload, 
           warning: '' }
+
+       //2) data.jk   
+      case 'RESET':
+      return init(action.payload)      
+
       default:
         throw new Error('Unknown action type')
+    }
+  }
+
+  // 2) data.js
+  export function init(externalData) {
+    return {
+      ...initialState,
+      name: externalData.name,
+      year: externalData.year
     }
   }
