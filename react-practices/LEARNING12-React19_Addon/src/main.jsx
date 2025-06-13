@@ -1,18 +1,14 @@
-// BrowserRouter는 URL을 다룰 수 있고 새로고침 없이 페이지를 전환가능
-import { BrowserRouter } from 'react-router-dom'
+import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import App01 from './App01.jsx'
 import App02 from './App02.jsx'
-import App03 from './App03.jsx'
-
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <StrictMode>
     {/* <App /> */}
     {/* <App01 /> */}
-    {/* <App02 /> */}
-    <App03 />
-  </BrowserRouter>,
+    <App02 />
+  </StrictMode>,
 )
